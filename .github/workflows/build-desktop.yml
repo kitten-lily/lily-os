@@ -1,0 +1,30 @@
+name: LilyOS Build Desktop
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+      - ".github/workflows/build-server.sh"
+      - ".gitignore"
+      - "build_files/server/*.sh"
+  schedule:
+    - cron: "31 6 * * 0" # 6:31 UTC Sunday
+    - cron: "31 6 * * 1,2,3,4,5,6" # 6:31 UTC Monday-Saturday
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  build-desktop-latest:
+    name: Desktop Latest
+    uses: ./.github/workflows/reusable-build.yml
+    secrets: inherit
+    with:
+      images: '["bluefin"]'
+      streams: '["latest"]'
+      flavors: '["main"]'

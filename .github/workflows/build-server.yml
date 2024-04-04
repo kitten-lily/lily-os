@@ -1,0 +1,30 @@
+name: LilyOS Build Server
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+      - ".github/workflows/build-desktop.sh"
+      - ".gitignore"
+      - "build_files/desktop/*.sh"
+  schedule:
+    - cron: "11 6 * * 0" # 6:31 UTC Sunday
+    - cron: "11 6 * * 1,2,3,4,5,6" # 6:31 UTC Monday-Saturday
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  build-server-stable:
+    name: Server Stable
+    uses: ./.github/workflows/reusable-build.yml
+    secrets: inherit
+    with:
+      images: '["ucore"]'
+      streams: '["stable"]'
+      flavors: '["main"]'
