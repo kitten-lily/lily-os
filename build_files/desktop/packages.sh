@@ -21,3 +21,6 @@ dnf5 install -y \
     proton-vpn-gnome-desktop \
     /tmp/ProtonMail-desktop-beta.rpm \
     /tmp/ProtonPass.rpm \
+
+# github direct installs
+/ctx/build_files/github-release-install.sh rclone/rclone amd64

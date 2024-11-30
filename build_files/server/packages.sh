@@ -4,23 +4,28 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-### Add rpmfusion
-# Not installed by default on ucore
-dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$RELEASE.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$RELEASE.noarch.rpm
+dnf5 remove -y \
+    WALinuxAgent-udev \
+    adcli \
+    abattis-cantarell-fonts.noarch \
+    adobe-source-code-pro-fonts.noarch \
+    afterburn \
+    afterburn-dracut \
+    cockpit-bridge \
+    cockpit-networkmanager \
+    cockpit-podman.noarch \
+    cockpit-selinux.noarch \
+    cockpit-system.noarch \
+    nano \
+    nano-default-editor \
+    nfs-utils-coreos \
+    open-vm-tools \
+    podman \
+    podman-compose \
+    tmux
 
-### Install packages
-dnf5 install -y intel-media-driver \
-    libva libva-utils \
-    fish \
-    nu \
-    zsh \
-    bat eza fd-find fzf gh gitui micro ripgrep tealdeer zoxide
-
-# github direct installs
-/ctx/build_files/github-release-install.sh twpayne/chezmoi x86_64
-
-### Add Starship
-# Starship Shell Prompt
-curl -Lo /tmp/starship.tar.gz "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz"
-tar -xzf /tmp/starship.tar.gz -C /tmp
-install -c -m 0755 /tmp/starship /usr/bin
+# dnf5 list --installed
+dnf5 install -y \
+    libvirt-client \
+    libvirt-daemon-kvm \
+    virt-install
