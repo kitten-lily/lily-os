@@ -14,13 +14,13 @@ wget https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm -O /tmp/P
 pass_url=$(wget -q -O- https://proton.me/download/PassDesktop/linux/x64/version.json | jq -r '.Releases | max_by(.ReleaseDate) | .File[] | select(.Identifier==".rpm (Fedora/RHEL)").Url')
 wget $pass_url -O /tmp/ProtonPass.rpm
 
-# TODO: Add Proton VPN when available for f40
+# TODO: Add Proton VPN when available for f41
 dnf5 install -y \
     headsetcontrol \
     morewaita-icon-theme \
     proton-vpn-gnome-desktop \
     /tmp/ProtonMail-desktop-beta.rpm \
-    /tmp/ProtonPass.rpm \
+    /tmp/ProtonPass.rpm
 
 # github direct installs
 /ctx/build_files/github-release-install.sh rclone/rclone amd64
