@@ -7,6 +7,7 @@ images := '(
     [bluefin]="bluefin-dx"
     [ucore-minimal]="ucore-minimal"
     [ucore-hci]="ucore-hci"
+    [ucore]="ucore"
 )'
 flavors := '(
     [main]=main

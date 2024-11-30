@@ -25,6 +25,6 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
-      images: '["ucore-minimal"]'
+      images: '["ucore-minimal", "ucore", "ucore-hci"]'
       streams: '["stable"]'
       flavors: '["main"]'
