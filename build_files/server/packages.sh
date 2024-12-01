@@ -3,4 +3,5 @@
 set -ouex pipefail
 
 dnf5 install -y \
-    avahi
+    avahi \
+    cloudflare-warp
