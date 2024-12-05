@@ -2,5 +2,8 @@
 
 set -ouex pipefail
 
+mkdir /var/opt
+ln -s /var/opt /opt
 dnf5 install -y \
-    avahi
+    avahi \
+    cloudflare-warp
