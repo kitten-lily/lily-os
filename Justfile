@@ -5,6 +5,7 @@ repo_organization := "kitten-lily"
 rechunker_image := "ghcr.io/hhd-dev/rechunk:v1.0.1"
 images := '(
     [bluefin]="bluefin-dx"
+    [bazzite]="bazzite-gnome"
     [ucore-minimal]="ucore-minimal"
     [ucore-hci]="ucore-hci"
     [ucore]="ucore"

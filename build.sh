@@ -19,6 +19,9 @@ case "${IMAGE}" in
 "bluefin"*)
     /ctx/build_files/desktop.sh
     ;;
+"bazzite"*)
+    /ctx/build_files/desktop.sh
+    ;;
 "ucore"*)
     /ctx/build_files/server.sh
     ;;
