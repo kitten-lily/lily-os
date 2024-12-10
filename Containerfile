@@ -4,8 +4,6 @@ ARG TAG_VERSION="latest"
 
 FROM scratch AS ctx
 COPY / /
-ADD --chmod=755 https://raw.githubusercontent.com/bsherman/bos/refs/heads/main/build_files/github-release-install.sh /build_files/github-release-install.sh
-ADD --chmod=755 https://raw.githubusercontent.com/bsherman/bos/refs/heads/main/build_files/desktop-1password.sh /build_files/desktop/1password.sh
 ADD --chmod=755 https://raw.githubusercontent.com/bsherman/bos/refs/heads/main/build_files/server-docker-ce.sh /build_files/shared/docker-ce.sh
 ADD --chmod=755 https://raw.githubusercontent.com/bsherman/bos/refs/heads/main/build_files/server-changes.sh /build_files/server/changes.sh
 

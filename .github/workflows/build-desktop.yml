@@ -25,6 +25,6 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
-      images: '["bluefin", "bazzite"]'
+      images: '["bluefin", "bluefin-dx", "bazzite"]'
       streams: '["latest"]'
       flavors: '["main"]'
