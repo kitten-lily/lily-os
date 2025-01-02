@@ -6,10 +6,10 @@ on:
     paths-ignore:
       - "**.md"
       - ".github/workflows/build-desktop.yml"
-      - ".github/workflows/build-ccos.yml"
+      - ".github/workflows/build-server.yml"
       - ".gitignore"
       - "build_files/desktop/*.sh"
-      - "build_files/ccos/*.sh"
+      - "build_files/server/*.sh"
   schedule:
     - cron: "11 6 * * 0" # 6:31 UTC Sunday
     - cron: "11 6 * * 1,2,3,4,5,6" # 6:31 UTC Monday-Saturday
@@ -27,6 +27,6 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
-      images: '["ucore-minimal", "ucore", "ucore-hci"]'
-      streams: '["stable"]'
+      images: '["ccos"]'
+      streams: '["latest"]'
       flavors: '["main"]'

@@ -5,9 +5,11 @@ on:
       - main
     paths-ignore:
       - "**.md"
-      - ".github/workflows/build-server.sh"
+      - ".github/workflows/build-server.yml"
+      - ".github/workflows/build-ccos.yml"
       - ".gitignore"
       - "build_files/server/*.sh"
+      - "build_files/ccos/*.sh"
   schedule:
     - cron: "31 6 * * 0" # 6:31 UTC Sunday
     - cron: "31 6 * * 1,2,3,4,5,6" # 6:31 UTC Monday-Saturday
