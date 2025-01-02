@@ -10,6 +10,7 @@ images := '(
     [ucore-minimal]="ucore-minimal"
     [ucore-hci]="ucore-hci"
     [ucore]="ucore"
+    [ccos]="ccos"
 )'
 flavors := '(
     [main]=main
