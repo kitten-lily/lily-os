@@ -1,4 +1,4 @@
-name: LilyOS Build Server
+name: LilyOS Build CentOS Server
 on:
   push:
     branches:
@@ -30,3 +30,4 @@ jobs:
       images: '["ccos"]'
       streams: '["latest"]'
       flavors: '["main"]'
+      rechunk: false

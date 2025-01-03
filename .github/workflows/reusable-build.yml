@@ -14,6 +14,11 @@ on:
         description: "JSON string of flavors to build, one or both of '[main, nvidia]'"
         required: true
         type: string
+      rechunk:
+        description: "Whether image should be rechunked"
+        required: false
+        default: true
+        type: boolean
     outputs:
       images:
         description: "An array of images built and pushed to the registry"
@@ -126,6 +131,7 @@ jobs:
           sudo just build "${{ matrix.image }}" "${{ matrix.stream }}" "${{ matrix.flavor }}"
 
       - name: Rechunk Image
+        if: inputs.rechunk
         id: rechunk
         shell: bash
         run: |
