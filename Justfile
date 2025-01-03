@@ -368,3 +368,7 @@ fedora_version image="bluefin" tag="latest" flavor="main":
     fi
     fedora_version=$(jq -r '.Labels["ostree.linux"]' < /tmp/manifest.json | grep -oP 'fc\K[0-9]+')
     echo "${fedora_version}"
+
+ccos_iso:
+    mkdir -p output
+    sudo podman run --rm -it --privileged --pull=newer --net=host --security-opt label=type:unconfined_t -v $(pwd)/image-builder-iso.config.toml:/config.toml:ro -v $(pwd)/output:/output -v /var/lib/containers/storage:/var/lib/containers/storage ghcr.io/centos-workstation/bootc-image-builder:latest --type anaconda-iso ghcr.io/kitten-lily/lily-os:ccos-latest
