@@ -17,8 +17,7 @@ set -euox pipefail
 
 dnf -y install \
     incus \
-    qemu-img \
-    qemu-kvm-core
+    virt-manager
 
 
 # Tailscale
