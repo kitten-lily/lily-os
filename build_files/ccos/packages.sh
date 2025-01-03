@@ -3,23 +3,18 @@
 set -euox pipefail
 
 # Incus
-#     edk2-ovmf
-#     genisoimage
-#     incus-agent
-#     incus-client
-#     qemu-char-spice
-#     qemu-device-display-virtio-vga
-#     qemu-device-display-virtio-gpu
-#     qemu-device-usb-redirect
-#     qemu-img
-#     qemu-kvm-core
-#     swtpm
-
 dnf -y install \
     incus \
     virt-manager
 
-
 # Tailscale
 dnf -y --enablerepo tailscale-stable install \
   tailscale
+
+# Docker
+dnf -y install \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-compose-plugin

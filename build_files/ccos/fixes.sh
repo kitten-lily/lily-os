@@ -8,3 +8,13 @@ mkdir -m 0700 -p /var/roothome
 ln -sf /run /var/run
 # Required for Logically Bound images, see https://gitlab.com/fedora/bootc/examples/-/tree/main/logically-bound-images/usr/share/containers/systemd
 ln -sr /etc/containers/systemd/*.container /usr/lib/bootc/bound-images.d/
+
+# Remove "old" docker packages
+dnf remove docker \
+    docker-client \
+    docker-client-latest \
+    docker-common \
+    docker-latest \
+    docker-latest-logrotate \
+    docker-logrotate \
+    docker-engine
