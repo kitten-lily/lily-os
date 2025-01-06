@@ -5,6 +5,9 @@ set -euox pipefail
 # Ghossty
 dnf5 copr enable -y pgdev/ghostty
 
+# COSMIC
+dnf5 copr enable -y ryanabx/cosmic-epoch
+
 # Proton VPN
 cat <<EOF > /etc/yum.repos.d/protonvpn-stable.repo
 #

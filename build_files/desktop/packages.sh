@@ -9,6 +9,7 @@ pass_url=$(wget -q -O- https://proton.me/download/PassDesktop/linux/x64/version.
 wget $pass_url -O /tmp/ProtonPass.rpm
 
 dnf5 install -y \
+    cosmic-desktop \
     ghostty \
     headsetcontrol \
     /tmp/ProtonMail-desktop-beta.rpm \
