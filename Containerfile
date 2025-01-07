@@ -15,4 +15,10 @@ ARG IMAGE="bluefin"
 
 RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
     mkdir -p /var/lib/alternatives && \
-    /ctx/build.sh
+    /ctx/build.sh && \
+    mv /var/lib/alternatives /staged-alternatives && \
+    ostree container commit && \
+    mkdir -p /var/lib && \
+    mv /staged-alternatives /var/lib/alternatives && \
+    mkdir -p /var/tmp && \
+    chmod -R 1777 /var/tmp && \

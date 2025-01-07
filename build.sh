@@ -18,17 +18,13 @@ fi
 case "${IMAGE}" in
 "bluefin"*)
     /ctx/build_files/desktop/desktop.sh
-    /ctx/build_files/shared/shared.sh
     ;;
 "bazzite"*)
     /ctx/build_files/desktop/desktop.sh
-    /ctx/build_files/shared/shared.sh
     ;;
 "ucore"*)
     /ctx/build_files/server/server.sh
-    /ctx/build_files/shared/shared.sh
-    ;;
-"ccos"*)
-    /ctx/build_files/ccos/ccos.sh
     ;;
 esac
+
+/ctx/build_files/shared/shared.sh
