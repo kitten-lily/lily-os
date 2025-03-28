@@ -12,5 +12,12 @@ dnf5 install -y \
     cosmic-desktop \
     ghostty \
     headsetcontrol \
+    genisoimage \
+    incus{,-agent,-client}\
+    umoci \
+    swtpm \
     /tmp/ProtonMail-desktop-beta.rpm \
     /tmp/ProtonPass.rpm
+
+groupmod -g 251 incus
+groupmod -g 252 incus-admin

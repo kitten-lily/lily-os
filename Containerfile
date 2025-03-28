@@ -21,4 +21,4 @@ RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
     mkdir -p /var/lib && \
     mv /staged-alternatives /var/lib/alternatives && \
     mkdir -p /var/tmp && \
-    chmod -R 1777 /var/tmp && \
+    chmod -R 1777 /var/tmp
