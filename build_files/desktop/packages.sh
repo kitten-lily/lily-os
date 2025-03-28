@@ -9,7 +9,6 @@ pass_url=$(wget -q -O- https://proton.me/download/PassDesktop/linux/x64/version.
 wget $pass_url -O /tmp/ProtonPass.rpm
 
 dnf5 install -y \
-    cosmic-desktop \
     ghostty \
     headsetcontrol \
     genisoimage \
@@ -18,6 +17,3 @@ dnf5 install -y \
     swtpm \
     /tmp/ProtonMail-desktop-beta.rpm \
     /tmp/ProtonPass.rpm
-
-groupmod -g 251 incus
-groupmod -g 252 incus-admin
