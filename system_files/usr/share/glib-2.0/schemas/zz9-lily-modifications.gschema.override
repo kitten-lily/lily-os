@@ -1,0 +1,49 @@
+#-------------- DESKTOP MODIFICATIONS --------------#
+
+[org.gnome.shell]
+favorite-apps = ['']
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'logomenu@aryan_k', 'tailscale@joaophi.github.com']
+
+[org.gnome.desktop.interface]
+font-name="Adwaita 12"
+document-font-name="Adwaita 12"
+monospace-font-name="Adwaita Mono 12"
+accent-color="pink"
+
+[org.gnome.desktop.sound]
+allow-volume-above-100-percent=true
+theme-name="freedesktop"
+
+[org.gnome.desktop.wm.preferences]
+titlebar-font="Adwaita Bold 12"
+
+[org.gnome.desktop.wm.keybindings]
+show-desktop=['']
+switch-input-source=['']
+
+[com.github.stunkymonkey.nautilus-open-any-terminal]
+terminal='ptyxis'
+keybindings=''
+new-tab=false
+flatpak='off'
+
+[org.gnome.shell.extensions.Logo-menu]
+menu-button-system-monitor='flatpak run net.nokyan.Resources'
+show-boxbuddy=false
+
+
+#-------------- REMAINING SCHEMAS IN THIS SETTING SECTION ARE LOCATED IN DCONF --------------#
+# Settings bellow are supported with gschema override, but other settings, which are relocatable schemas, are not. Edit dconfs if you need to modify relocatable schemas.
+
+# Folder names & .desktop shortcut content is recognized as a relocatable schema
+[org.gnome.desktop.app-folders]
+folder-children=['Games', 'GamingUtilities', 'Utilities', 'Containers', 'Wine', 'YaST', 'Pardus', 'Development', 'Productivity', 'Media', 'UniversalBlue']
+
+# Modifying shortcut actions for custom0, custom1, custom2, etc. are recognized as relocatable schemas
+[org.gnome.settings-daemon.plugins.media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+home=['<Super>e']
+
+# LogoMenu extension misses gschema XML file, so it's located in dconf
+
+# SearchLight extension misses gschema XML file, so it's located in dconf

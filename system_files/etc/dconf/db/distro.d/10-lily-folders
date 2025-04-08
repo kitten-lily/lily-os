@@ -1,0 +1,24 @@
+# Relocatable schemas are located here in dconf
+# Some Gnome extensions don't ship gschema XML, so their settings also need to go in dconf
+
+[org/gnome/desktop/app-folders/folders/Development]
+apps=['dev-pod.desktop', 'code.desktop', 'virt-manager.desktop', 'io.podman_desktop.PodmanDesktop.desktop', 'com.axosoft.GitKraken.desktop']
+
+[org/gnome/desktop/app-folders/folders/GamingUtilities]
+apps=['protontricks.desktop', 'discover_overlay_configure.desktop', 'com.vysp3r.ProtonPlus.desktop', 'io.github.benjamimgois.goverlay.desktop', 'com.gerbilsoft.rom-properties.rp-config.desktop', 'steamos-nested-desktop.desktop', 'com.dec05eba.gpu_screen_recorder.desktop']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['com.github.tchx84.Flatseal.desktop', 'io.github.flattool.Warehouse.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'org.gnome.tweaks.desktop', 'firewall-config.desktop', 'ca.desrt.dconf-editor.desktop', 'org.gnome.World.PikaBackup.desktop', 'input-leap.desktop', 'solaar.desktop', 'org.fedoraproject.MediaWriter.desktop', 'input-remapper-gtk.desktop', 'org.gnome.Sysprof.desktop', 'remote-viewer.desktop', 'io.github.flattool.Ignition.desktop', 'io.gitlab.adhami3310.Impression.desktop', 'page.tesk.Refine.desktop', 'com.protonvpn.www.desktop', 'net.nokyan.Resources.desktop', 'io.github.pwr_solaar.solaar.desktop', 'org.gnome.baobab.desktop', 'org.gnome.font-viewer.desktop']
+
+[org/gnome/desktop/app-folders/folders/Productivity]
+apps=['simple-scan.desktop', 'org.gnome.Papers.desktop', 'org.gnome.Connections.desktop','me.proton.Mail.desktop','me.proton.Pass.desktop']
+
+[org/gnome/desktop/app-folders/folders/Media]
+apps=['com.github.rafostar.Clapper.desktop', 'org.gnome.Loupe.desktop']
+name='Media'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/UniversalBlue]
+apps=['disscourse.desktop', 'documentation.desktop', 'system-update.desktop']
+name='Universal Blue'
+translate=false

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ouex pipefail
+
+# Cooler Control
+dnf -y copr enable codifryed/CoolerControl
+dnf -y install coolercontrol
+dnf copr disable codifryed/CoolerControl
