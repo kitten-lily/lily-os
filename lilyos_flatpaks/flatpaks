@@ -23,17 +23,11 @@ runtime/org.gtk.Gtk3theme.adw-gtk3/x86_64/3.22
 runtime/org.gtk.Gtk3theme.adw-gtk3-dark/x86_64/3.22
 app/io.github.pwr_solaar.solaar/x86_64/stable
 app/net.nokyan.Resources/x86_64/stable
-app/com.valvesoftware.Steam/x86_64/stable
 app/app.zen_browser.zen/x86_64/stable
-app/com.dec05eba.gpu_screen_recorder/x86_64/stable
-app/com.heroicgameslauncher.hgl/x86_64/stable
 app/com.protonvpn.www/x86_64/stable
 app/me.proton.Mail/x86_64/stable
 app/me.proton.Pass/x86_64/stable
-app/com.usebottles.bottles/x86_64/stable
 app/com.axosoft.GitKraken/x86_64/stable
 app/com.discordapp.Discord/x86_64/stable
 app/dev.zed.Zed/x86_64/stable
-app/com.vysp3r.ProtonPlus/x86_64/stable
-app/page.kramo.Cartridges/x86_64/stable
 app/com.github.PintaProject.Pinta/x86_64/stable

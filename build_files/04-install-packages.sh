@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir /var/roothome
+
 set -ouex pipefail
 
 # Cooler Control

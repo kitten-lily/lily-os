@@ -10,6 +10,36 @@
 # fix-       = apply fix/patch/workaround for something
 # foo        = no verb is used for shortcuts or something deemed important enough to use a super memorable name
 
+[group('Apps')]
+install-gaming-flatpaks:
+    #!/usr/bin/env bash
+    FLATPAKS="lilyos_flatpaks/gaming_flatpaks"
+    FLATPAK_LIST="$(curl https://raw.githubusercontent.com/kitten-lily/lily-os-new/main/${FLATPAKS} | tr '\n' ' ')"
+    flatpak --system -y install --or-update ${FLATPAK_LIST}
+
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak --system -y install --or-update app/com.valvesoftware.Steam/x86_64/stable \
+                                            app/com.heroicgameslauncher.hgl/x86_64/stable \
+                                            app/net.lutris.Lutris/x86_64/stable \
+                                            app/com.vysp3r.ProtonPlus/x86_64/stable \
+                                            app/com.dec05eba.gpu_screen_recorder/x86_64/stable \
+                                            app/com.github.Matoking.protontricks/x86_64/stable \
+                                            runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/24.08 \
+                                            runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08 \
+                                            runtime/org.freedesktop.Platform.VulkanLayer.OBSVkCapture/x86_64/24.08 \
+                                            runtime/com.obsproject.Studio.Plugin.OBSVkCapture/x86_64/stable \
+                                            runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/24.08 \
+                                            runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08 \
+                                            runtime/com.valvesoftware.Steam.Utility.steamtinkerlaunch/x86_64/stable
+
+# Install system flatpaks for rebasers
+[group('System')]
+install-system-flatpaks:
+    #!/usr/bin/bash
+    FLATPAKS="lilyos_flatpaks/flatpaks"
+    FLATPAK_LIST="$(curl https://raw.githubusercontent.com/kitten-lily/lily-os-new/main/${FLATPAKS} | tr '\n' ' ')"
+    flatpak --system -y install --or-update ${FLATPAK_LIST}
+
 # Reset system flatpaks for rebasers
 [group('System')]
 configure-system-flatpaks:
