@@ -1,7 +1,7 @@
 export repo_organization := env("GITHUB_REPOSITORY_OWNER", "kitten-lily")
-export image_name := env("IMAGE_NAME", "lily-os")
+export image_name := env("IMAGE_NAME", "lily-os-dx")
 export fedora_version := env("FEDORA_VERSION", "42")
-export bluefin_version := env("BLUEFIN_VERSION", "beta")
+export source_image := env("SOURCE_IMAGE", "bluefin-dx:beta")
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
@@ -89,8 +89,8 @@ sudoif command *args:
 #
 
 # Build the image using the specified parameters
-build $target_image=image_name $tag=default_tag $bluefin_version=bluefin_version:
-    ./build.sh ${target_image} ${tag} ${bluefin_version}
+build $target_image=image_name $tag=default_tag $source_image=source_image $extra_tags="":
+    ./build.sh ${target_image} ${tag} ${source_image} "${extra_tags}"
 
 # Command: _rootful_load_image
 # Description: This script checks if the current user is root or running under sudo. If not, it attempts to resolve the image tag using podman inspect.

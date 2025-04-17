@@ -20,6 +20,7 @@ env:
   ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4" # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
   DEFAULT_TAG: "latest"
   FEDORA_VERSION: "42"
+  UPSTREAM: "bluefin-dx:beta"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}-${{ inputs.brand_name}}-${{ inputs.stream_name }}
@@ -41,10 +42,10 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       # This is optional, but if you see that your builds are way too big for the runners, you can enable this by uncommenting the following lines:
-      - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
-        with:
-          remove-codeql: true
+      # - name: Maximize build space
+      #   uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+      #   with:
+      #     remove-codeql: true
 
       - name: Get current date
         id: date
@@ -95,12 +96,12 @@ jobs:
         id: build-image
         shell: bash
         env:
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}-dx
         run: |
           set -x
           just=$(which just)
 
-          sudo $just build "${IMAGE_NAME}" "${DEFAULT_TAG}"
+          sudo $just build "${IMAGE_NAME}" "${DEFAULT_TAG}" "${UPSTREAM}" "${{ steps.metadata.outputs.tags }}"
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
@@ -118,13 +119,13 @@ jobs:
       #     version: ${{ env.FEDORA_VERSION }}
 
       # This is necessary so that the podman socket can find the rechunked image on its storage
-      - name: Load in podman and tag
-        run: |
-          IMAGE=$(podman pull ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }})
-          sudo rm -rf ${{ steps.rechunk.outputs.output }}
-          for tag in ${{ steps.metadata.outputs.tags }}; do
-            podman tag $IMAGE ${{ env.IMAGE_NAME }}:$tag
-          done
+      # - name: Load in podman and tag
+      #   run: |
+      #     IMAGE=$(podman pull ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }})
+      #     sudo rm -rf ${{ steps.rechunk.outputs.output }}
+      #     for tag in ${{ steps.metadata.outputs.tags }}; do
+      #       podman tag $IMAGE ${{ env.IMAGE_NAME }}:$tag
+      #     done
 
       # These `if` statements are so that pull requests for your custom images do not make it publish any packages under your name without you knowing
       # They also check if the runner is on the default branch so that things like the merge queue (if you enable it), are going to work

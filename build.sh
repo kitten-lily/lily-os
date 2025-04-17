@@ -2,13 +2,14 @@
 
 set -oue pipefail
 
-container_name=$1
-container_tag=$2
-upstream_version=$3
+container_name="$1"
+container_tag="$2"
+upstream="$3"
+extra_tags="$4"
 
 container=$(buildah from --pull=newer \
     --volume $(pwd)/build_files:/build_files:O \
-    "ghcr.io/ublue-os/bluefin-dx:$upstream_version")
+    "ghcr.io/ublue-os/$upstream")
 
 buildah copy $container system_files /
 
@@ -24,3 +25,7 @@ done
 buildah run $container /build_files/cleanup.sh
 
 buildah commit --rm $container $container_name:$container_tag
+
+for extra_tag in $extra_tags; do
+  buildah tag $container_name $container_name:$extra_tag
+done
