@@ -102,7 +102,7 @@ jobs:
           set -x
           just=$(which just)
 
-          sudo $just build "${IMAGE_NAME}" "${DEFAULT_TAG}" "${UPSTREAM}" "${EXTRA_TAGS}"
+          $just build "${IMAGE_NAME}" "${DEFAULT_TAG}" "${UPSTREAM}" "${EXTRA_TAGS}"
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
