@@ -4,7 +4,7 @@ mkdir /var/roothome
 
 set -ouex pipefail
 
-dnf -y install \
+dnf -y install --setopt=install_weak_deps=False \
    mkosi
 
 # Cooler Control
